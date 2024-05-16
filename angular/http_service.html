@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+
+<body ng-controller="myCtrl">
+
+    Response: {{data}} </br>
+    Error: {{error}}
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function ($scope, $http) {
+            var onSuccess = function (response) {
+                $scope.data = response.data;
+            };
+            var onError = function (error) {
+                $scope.error = error;
+            };
+
+            $http.get("https://api.github.com/users/OmkarLande")
+                .then(onSuccess, onError);
+
+            $http.post("https://api.github.com/users/OmkarLande", { name: "Omkar" })
+                .then(onSuccess, onError);
+
+            $http.put("https://api.github.com/users/OmkarLande/data.id", { name: "Omkar" })
+                .then(onSuccess, onError);
+
+            $http.delete("https://api.github.com/users/OmkarLande/data.id")
+                .then(onSuccess, onError);
+        });
+    </script>
+
+</body>
+
+</html>

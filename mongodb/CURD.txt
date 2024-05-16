@@ -1,0 +1,71 @@
+harry_is_god> db.createCollection("users");
+{ ok: 1 }
+harry_is_god> db.users.insertOne({
+... name: "Harry",
+... age: 23,
+... email: "harshalkomilgyi@gmail.com"
+... });
+{
+  acknowledged: true,
+  insertedId: ObjectId('6645b55fa38e47c0fb46b799')
+}
+harry_is_god> db.users.find().pretty();
+[
+  {
+    _id: ObjectId('6645b55fa38e47c0fb46b799'),
+    name: 'Harry',
+    age: 23,
+    email: 'harshalkomilgyi@gmail.com'
+  }
+]
+harry_is_god> db.users.find();
+[
+  {
+    _id: ObjectId('6645b55fa38e47c0fb46b799'),
+    name: 'Harry',
+    age: 23,
+    email: 'harshalkomilgyi@gmail.com'
+  }
+]
+harry_is_god> db.users.updateOne(
+... {name: "Harry" },
+... {$set: {email: "harshalkomilgyi@karad.com" }}
+... );
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+harry_is_god> db.users.find().pretty();
+[
+  {
+    _id: ObjectId('6645b55fa38e47c0fb46b799'),
+    name: 'Harry',
+    age: 23,
+    email: 'harshalkomilgyi@karad.com'
+  }
+]
+harry_is_god> db.users.insertOne({ name: "Omkar", age: 21, email: "ogom@gmail.com" });
+{
+  acknowledged: true,
+  insertedId: ObjectId('6645b69ca38e47c0fb46b79a')
+}
+harry_is_god> db.users.find().pretty();
+[
+  {
+    _id: ObjectId('6645b55fa38e47c0fb46b799'),
+    name: 'Harry',
+    age: 23,
+    email: 'harshalkomilgyi@karad.com'
+  },
+  {
+    _id: ObjectId('6645b69ca38e47c0fb46b79a'),
+    name: 'Omkar',
+    age: 21,
+    email: 'ogom@gmail.com'
+  }
+]
+harry_is_god> db.users.deleteMany({ age: {$gt:21 }} );
+{ acknowledged: true, deletedCount: 1 }

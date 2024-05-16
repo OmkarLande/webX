@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+
+<body ng-controller="MainController">
+
+    <h1>Welcome to My App!</h1>
+
+    
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('MainController', function( $log) {
+        
+            $log.log('Current URL:');
+            }
+        );
+    </script>
+
+</body>
+
+</html>

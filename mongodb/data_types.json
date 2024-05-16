@@ -1,0 +1,24 @@
+{
+    "string": "Hello, MongoDB!",
+    "number": 42,
+    "boolean": true,
+    "nullValue": null,
+    "array": [1, 2, 3, 4, 5],
+    "object": {
+      "key1": "value1",
+      "key2": "value2"
+    },
+    "date": ISODate("2024-05-16T00:00:00Z"),
+    "objectId": ObjectId("507f1f77bcf86cd799439011"),
+    "binary": BinData(128, "aGVsbG8gd29ybGQ="),
+    "binary_another_way": "110",
+    "regex": /pattern/,
+    "int32": NumberInt(42),
+    "int64": NumberLong(123456789012345),
+    "double": 3.14,
+    "decimal": NumberDecimal("3.14159"),
+    "timestamp": Timestamp(1234567890, 1),
+    "minKey": MinKey(),
+    "maxKey": MaxKey()
+  }
+  

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+</head>
+
+<body ng-init="checked = true">
+    <!-- Built-in Directives -->
+    <button ng-click="count=count+1" ng-init="count = 0" >Increment</button>
+    <span>Count: {{count}}</span>
+    <br>
+    <div ng-init="student=['Omkar', 'Harshal', 'Siddhya', 'Teja']">
+        <ol>
+            <li ng-repeat="names in student">{{names}}</li>
+        </ol>
+    </div>
+    <br>
+    Click me: <input type="checkbox" ng-model="checked">
+    <br>
+    Show:
+    <span ng-if="checked">
+        This is visible
+    </span>
+    <span ng-if="!checked">
+        This is not visible
+    </span>
+    <br>
+    ReadOnly: <input type="text" ng-readonly="checked" value="ReadOnly">
+    Disabled: <input type="text" ng-disabled="checked" value="Disabled">
+
+    <script>
+        var app = angular.module('myApp', []);
+    </script>
+
+    <!-- Custom Directive -->
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.directive('customDirective', function(){
+            return {
+                restrict: 'E',
+                template: '<div>Custom Directive</div>',
+                link: function(scope, element, attrs){
+                    element.bind('mouseenter', function(){
+                        element.css('background-color', 'yellow');
+                    });
+                    element.bind('mouseleave', function(){
+                        element.css('background-color', 'white');
+                    });
+                }
+            }
+        })
+    </script>
+
+    <custom-directive></custom-directive>
+
+
+</body>
+
+</html>
